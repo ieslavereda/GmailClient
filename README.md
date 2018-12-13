@@ -1,4 +1,5 @@
-# GmailClient
+![](http://www.redpostmedia.co.uk/wp-content/uploads/2015/11/gmail-logo-1-01.png)
+# GmailClient 
 Software para el envio de mails a traves de la API de Google.
 
 Para poder enviar mensajes mediante este proyecto, deberemos obtener el **ClientID**, **ClientSecret**, **AccesToken** y **RefreshToken**. Estos valores los deberemos introducir en el fichero config.properties para ser cargados por la aplicacion.
