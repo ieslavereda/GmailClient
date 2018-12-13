@@ -5,6 +5,7 @@ Software para el envio de mails a traves de la API de Google.
 Para poder enviar mensajes mediante este proyecto, deberemos obtener el **ClientID**, **ClientSecret**, **AccesToken** y **RefreshToken**. Estos valores los deberemos introducir en el fichero config.properties para ser cargados por la aplicacion:
 
 ```bash
+# config.properties
 # Configuracion para el envio de email
 # mail de respuesta
 mail.smtp.reply=noreply@ieslavereda.es
