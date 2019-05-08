@@ -22,7 +22,7 @@ mailRefreshToken=
 applicationName=LDAP-GAP
 ```
 
-La explicacion de como generar los valores necesarios para el envio de mails se explica en  [Google API - Wiki Vereda](http://wiki.ieslavereda.es/index.php?title=Google_API#Envio_de_Mails)
+La explicacion de como generar los valores necesarios para el envio de mails se explica en  [Google API - Wiki Vereda](http://wiki.ieslavereda.es/index.php?title=Google_API#Envio_de_Mails) y [Google Client - Docs](https://docs.google.com/document/d/1jZu8LlW-Yw5aRNznFO2sD2evbytovN-11ag_kKXquzs/edit?usp=sharing)
 
 Software realizado por:
 - Joaquin Vicente Alonso Saiz (joaalsai@gmail.com - joaalsai@ieslavereda.es)
