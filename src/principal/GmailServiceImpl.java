@@ -28,7 +28,7 @@ import config.Configuracion;
 
 public final class GmailServiceImpl implements GmailService {
 	
-	private static final String APPLICATION_NAME = (new Configuracion()).getApplicationName();
+	private static final String APPLICATION_NAME = Configuracion.getConfiguracion().getApplicationName();
 
 	private static final JsonFactory JSON_FACTORY = JacksonFactory.getDefaultInstance();
 
@@ -69,7 +69,7 @@ public final class GmailServiceImpl implements GmailService {
 
 	private MimeMessage createEmail(String to, String from, String subject, String bodyText) throws MessagingException, UnsupportedEncodingException {
 		MimeMessage email = new MimeMessage(Session.getDefaultInstance(new Properties(), null));
-		email.setFrom(new InternetAddress(from,(new Configuracion()).getNameFrom()));
+		email.setFrom(new InternetAddress(from,Configuracion.getConfiguracion().getNameFrom()));
 		email.addRecipient(javax.mail.Message.RecipientType.TO, new InternetAddress(to));
 		email.setSubject(subject);
 		email.setText(bodyText);
@@ -90,7 +90,7 @@ public final class GmailServiceImpl implements GmailService {
 
 		MimeMessage email = new MimeMessage(session);
 
-		email.setFrom(new InternetAddress(from,(new Configuracion()).getNameFrom()));
+		email.setFrom(new InternetAddress(from,Configuracion.getConfiguracion().getNameFrom()));
 		email.addRecipient(javax.mail.Message.RecipientType.TO, new InternetAddress(to));
 		email.setSubject(subject);
 
@@ -121,7 +121,7 @@ public final class GmailServiceImpl implements GmailService {
 
 		MimeMessage email = new MimeMessage(session);
 
-		email.setFrom(new InternetAddress(from,(new Configuracion()).getNameFrom()));
+		email.setFrom(new InternetAddress(from,Configuracion.getConfiguracion().getNameFrom()));
 		email.addRecipient(javax.mail.Message.RecipientType.TO, new InternetAddress(to));
 		email.setSubject(subject);
 

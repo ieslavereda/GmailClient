@@ -4,13 +4,13 @@ import config.Configuracion;
 
 public class GmailCredentials {
 	
-	Configuracion conf = new Configuracion();
+
 	
-    private final String userEmail=conf.getMailFrom();
-    private final String clientId=conf.getMailClientId();
-    private final String clientSecret=conf.getMailClientSecret();
-    private final String accessToken = conf.getMailAccessToken();
-    private final String refreshToken = conf.getMailRefreshToken();
+    private final String userEmail=Configuracion.getConfiguracion().getMailFrom();
+    private final String clientId=Configuracion.getConfiguracion().getMailClientId();
+    private final String clientSecret=Configuracion.getConfiguracion().getMailClientSecret();
+    private final String accessToken = Configuracion.getConfiguracion().getMailAccessToken();
+    private final String refreshToken = Configuracion.getConfiguracion().getMailRefreshToken();
 	  
     public String getUserEmail() {
 		return userEmail;

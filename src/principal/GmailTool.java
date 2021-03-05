@@ -24,12 +24,11 @@ public class GmailTool {
 
 	public static void sendHtml(String to, String from, String subject, String body) {
 		try {
-			Configuracion conf = new Configuracion();
 
 			GmailService gmailService = new GmailServiceImpl(GoogleNetHttpTransport.newTrustedTransport());
 			gmailService.setGmailCredentials(new GmailCredentials());
 
-			MimeMessage mm = gmailService.createEmailWithAttachment(to, conf.getMailFrom(), subject, body, null);
+			MimeMessage mm = gmailService.createEmailWithAttachment(to, Configuracion.getConfiguracion().getMailFrom(), subject, body, null);
 
 			gmailService.sendMessage(to, mm);
 
@@ -40,12 +39,11 @@ public class GmailTool {
 
 	public static void sendHtmlWithAttachment(String to, String from, String subject, String body, ArrayList<File> files) {
 		try {
-			Configuracion conf = new Configuracion();
-
+	
 			GmailService gmailService = new GmailServiceImpl(GoogleNetHttpTransport.newTrustedTransport());
 			gmailService.setGmailCredentials(new GmailCredentials());
 
-			MimeMessage mm = gmailService.createEmailWithAttachment(to, conf.getMailFrom(), subject, body, files);
+			MimeMessage mm = gmailService.createEmailWithAttachment(to, Configuracion.getConfiguracion().getMailFrom(), subject, body, files);
 
 			gmailService.sendMessage(to, mm);
 
@@ -62,12 +60,11 @@ public class GmailTool {
 				files.add(file);
 			}
 			
-			Configuracion conf = new Configuracion();
 
 			GmailService gmailService = new GmailServiceImpl(GoogleNetHttpTransport.newTrustedTransport());
 			gmailService.setGmailCredentials(new GmailCredentials());
 
-			MimeMessage mm = gmailService.createEmailWithAttachment(to, conf.getMailFrom(), subject, body, files);
+			MimeMessage mm = gmailService.createEmailWithAttachment(to, Configuracion.getConfiguracion().getMailFrom(), subject, body, files);
 
 			gmailService.sendMessage(to, mm);
 

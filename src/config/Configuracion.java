@@ -2,6 +2,7 @@ package config;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -12,142 +13,71 @@ public class Configuracion {
 
 	private final String defaultConfigFile = "default.properties";
 	private final String appConfigFile = "app.properties";
+	private Properties appProperties;
 
-	private Properties prop;
-	
-	private String mailSmtpReply;
-	private String mailFrom;
-	private String mailClientId;
-	private String mailClientSecret;
-	private String mailAccessToken;
-	private String mailRefreshToken;
-	private String applicationName;
-	private String nameFrom;
-	
-	public Configuracion() {
+	private static Configuracion myConfiguracion;
 
-		prop = new Properties();
+	private Configuracion() {
+
+		Properties defaultProperties = new Properties();
 		OutputStream output = null;
 
-		File fc = new File(defaultConfigFile);
+		try (FileInputStream fis = new FileInputStream(new File(defaultConfigFile))) {
 
-		if (!fc.isFile()) {
-			try {
+			defaultProperties.load(fis);
 
-				output = new FileOutputStream(defaultConfigFile);
-
-				// Propiedades para el envio de mail
-				prop.setProperty("mail.smtp.reply", "noreply@gva.es");
-				prop.setProperty("mail.from", "mail@tudominio.es");
-				prop.setProperty("mailClientId","tu_Cliente_ID");
-				prop.setProperty("mailClientSecret", "Secret_del_ClientID");
-				prop.setProperty("mailAccessToken","Access_Token");
-				prop.setProperty("mailRefreshToken", "Refresh_Token");	
-				prop.setProperty("applicationName", "Nombre_de_la_aplicacion");		
-				prop.setProperty("nameFrom", "Nombre_del_usario");		
-				
-				// save properties to project root folder
-				prop.store(output, null);
-
-			} catch (IOException io) {
-				io.printStackTrace();
-			} finally {
-				if (output != null) {
-					try {
-						output.close();
-					} catch (IOException e) {
-						e.printStackTrace();
-					}
-				}
-
-			}
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
-		// Cargamos las propiedades
-		cargar();
-	}
 
-	private void cargar() {
+		appProperties = new Properties(defaultProperties);
 
-		prop = new Properties();
-		InputStream input = null;
+		try (FileInputStream fis = new FileInputStream(appConfigFile)) {
 
-		try {
+			appProperties.load(fis);
 
-			input = new FileInputStream(defaultConfigFile);
-
-			// load a properties file
-			prop.load(input);
-
-			// get the property value and print it out
-
-			
-			this.mailSmtpReply = prop.getProperty("mail.smtp.reply");
-			this.mailFrom = prop.getProperty("mail.from");
-			this.mailClientId = prop.getProperty("mailClientId");
-			this.mailClientSecret = prop.getProperty("mailClientSecret");
-			this.mailAccessToken = prop.getProperty("mailAccessToken");
-			this.mailRefreshToken = prop.getProperty("mailRefreshToken");
-			this.applicationName = prop.getProperty("applicationName");
-			this.nameFrom = prop.getProperty("nameFrom");
-			
-		} catch (IOException ex) {
-			ex.printStackTrace();
-		} finally {
-			if (input != null) {
-				try {
-					input.close();
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
-			}
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
 	}
 
-	public String getFichero() {
-		return defaultConfigFile;
-	}
+	public static Configuracion getConfiguracion() {
+		if (myConfiguracion == null)
+			myConfiguracion = new Configuracion();
 
-
-	public String getFICHERO() {
-		return defaultConfigFile;
-	}
-
-	public Properties getProp() {
-		return prop;
+		return myConfiguracion;
 	}
 
 	public String getMailSmtpReply() {
-		return mailSmtpReply;
+		return appProperties.getProperty("mail.smtp.reply");
 	}
 
 	public String getMailFrom() {
-		return mailFrom;
+		return appProperties.getProperty("mail.from");
 	}
-	
 
 	public String getMailClientId() {
-		return mailClientId;
+		return appProperties.getProperty("mailClientId");
 	}
 
 	public String getMailClientSecret() {
-		return mailClientSecret;
+		return appProperties.getProperty("mailClientSecret");
 	}
 
 	public String getMailAccessToken() {
-		return mailAccessToken;
+		return appProperties.getProperty("mailAccessToken");
 	}
 
 	public String getMailRefreshToken() {
-		return mailRefreshToken;
+		return appProperties.getProperty("mailRefreshToken");
 	}
 
 	public String getApplicationName() {
-		return applicationName;
+		return appProperties.getProperty("applicationName");
 	}
 
 	public String getNameFrom() {
-		return nameFrom;
+		return appProperties.getProperty("nameFrom");
 	}
-	
 
 }

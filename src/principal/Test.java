@@ -11,7 +11,7 @@ public class Test {
 		// Cambiar el destinatario
 		String to = "joaalsai@gmail.com";
 		
-		String from = (new Configuracion()).getMailFrom();
+		String from = Configuracion.getConfiguracion().getMailFrom();
 		String subject = "Mail de prueba";
 		String body = "Esto es una prueba";
 		
