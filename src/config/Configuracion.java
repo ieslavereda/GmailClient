@@ -10,7 +10,8 @@ import java.util.Properties;
 
 public class Configuracion {
 
-	private final String FICHERO = "config.properties";
+	private final String defaultConfigFile = "default.properties";
+	private final String appConfigFile = "app.properties";
 
 	private Properties prop;
 	
@@ -28,12 +29,12 @@ public class Configuracion {
 		prop = new Properties();
 		OutputStream output = null;
 
-		File fc = new File(FICHERO);
+		File fc = new File(defaultConfigFile);
 
 		if (!fc.isFile()) {
 			try {
 
-				output = new FileOutputStream(FICHERO);
+				output = new FileOutputStream(defaultConfigFile);
 
 				// Propiedades para el envio de mail
 				prop.setProperty("mail.smtp.reply", "noreply@gva.es");
@@ -72,7 +73,7 @@ public class Configuracion {
 
 		try {
 
-			input = new FileInputStream(FICHERO);
+			input = new FileInputStream(defaultConfigFile);
 
 			// load a properties file
 			prop.load(input);
@@ -103,12 +104,12 @@ public class Configuracion {
 	}
 
 	public String getFichero() {
-		return FICHERO;
+		return defaultConfigFile;
 	}
 
 
 	public String getFICHERO() {
-		return FICHERO;
+		return defaultConfigFile;
 	}
 
 	public Properties getProp() {

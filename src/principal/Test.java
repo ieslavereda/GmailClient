@@ -9,7 +9,7 @@ public class Test {
 	public static void main(String[] args){
 		
 		// Cambiar el destinatario
-		String to = "to@ieslavereda.es";
+		String to = "joaalsai@gmail.com";
 		
 		String from = (new Configuracion()).getMailFrom();
 		String subject = "Mail de prueba";
