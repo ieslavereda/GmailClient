@@ -1,4 +1,4 @@
-package principal;
+package es.ieslavereda.GmailClient.common;
 
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;

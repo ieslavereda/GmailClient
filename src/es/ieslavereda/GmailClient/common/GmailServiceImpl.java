@@ -1,4 +1,4 @@
-package principal;
+package es.ieslavereda.GmailClient.common;
 
 import com.google.api.client.auth.oauth2.Credential;
 import com.google.api.client.googleapis.auth.oauth2.GoogleCredential;
@@ -8,6 +8,9 @@ import com.google.api.client.json.jackson2.JacksonFactory;
 import com.google.api.client.util.Base64;
 import com.google.api.services.gmail.Gmail;
 import com.google.api.services.gmail.model.Message;
+
+import es.ieslavereda.GmailClient.configuracion.Configuracion;
+
 import javax.activation.DataHandler;
 import javax.activation.DataSource;
 import javax.activation.FileDataSource;
@@ -24,7 +27,6 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Properties;
-import config.Configuracion;
 
 public final class GmailServiceImpl implements GmailService {
 	

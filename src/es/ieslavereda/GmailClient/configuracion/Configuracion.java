@@ -1,4 +1,4 @@
-package config;
+package es.ieslavereda.GmailClient.configuracion;
 
 import java.io.File;
 import java.io.FileInputStream;

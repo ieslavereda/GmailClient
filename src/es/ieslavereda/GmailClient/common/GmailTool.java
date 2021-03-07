@@ -1,8 +1,8 @@
-package principal;
+package es.ieslavereda.GmailClient.common;
 
 import com.google.api.client.googleapis.javanet.GoogleNetHttpTransport;
 
-import config.Configuracion;
+import es.ieslavereda.GmailClient.configuracion.Configuracion;
 
 import java.io.File;
 import java.util.ArrayList;

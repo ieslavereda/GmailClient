@@ -1,6 +1,6 @@
-package principal;
+package es.ieslavereda.GmailClient.common;
 
-import config.Configuracion;
+import es.ieslavereda.GmailClient.configuracion.Configuracion;
 
 public class GmailCredentials {
 

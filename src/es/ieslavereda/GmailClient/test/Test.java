@@ -1,8 +1,10 @@
-package principal;
+package es.ieslavereda.GmailClient.test;
 
 import java.io.File;
 import java.util.ArrayList;
-import config.Configuracion;
+
+import es.ieslavereda.GmailClient.common.GmailTool;
+import es.ieslavereda.GmailClient.configuracion.Configuracion;
 
 public class Test {
 
