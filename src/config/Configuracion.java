@@ -10,12 +10,13 @@ import java.io.OutputStream;
 import java.util.Properties;
 
 public class Configuracion {
+	
+	// Singleton instance
+	private static Configuracion myConfiguracion;
 
 	private final String defaultConfigFile = "default.properties";
-	private final String appConfigFile = "app.properties";
+	private String appConfigFile = "app.properties";
 	private Properties appProperties;
-
-	private static Configuracion myConfiguracion;
 
 	private Configuracion() {
 

@@ -14,7 +14,7 @@ public class GmailTool {
 		try {
 
 			GmailService gmailService = new GmailServiceImpl(GoogleNetHttpTransport.newTrustedTransport());
-			gmailService.setGmailCredentials(new GmailCredentials());
+			gmailService.setGmailCredentials(GmailCredentials.getCredential());
 			gmailService.sendMessage(to, subject, body);
 
 		} catch (Exception e) {
@@ -26,7 +26,7 @@ public class GmailTool {
 		try {
 
 			GmailService gmailService = new GmailServiceImpl(GoogleNetHttpTransport.newTrustedTransport());
-			gmailService.setGmailCredentials(new GmailCredentials());
+			gmailService.setGmailCredentials(GmailCredentials.getCredential());
 
 			MimeMessage mm = gmailService.createEmailWithAttachment(to, Configuracion.getConfiguracion().getMailFrom(), subject, body, null);
 
@@ -41,7 +41,7 @@ public class GmailTool {
 		try {
 	
 			GmailService gmailService = new GmailServiceImpl(GoogleNetHttpTransport.newTrustedTransport());
-			gmailService.setGmailCredentials(new GmailCredentials());
+			gmailService.setGmailCredentials(GmailCredentials.getCredential());
 
 			MimeMessage mm = gmailService.createEmailWithAttachment(to, Configuracion.getConfiguracion().getMailFrom(), subject, body, files);
 
@@ -62,7 +62,7 @@ public class GmailTool {
 			
 
 			GmailService gmailService = new GmailServiceImpl(GoogleNetHttpTransport.newTrustedTransport());
-			gmailService.setGmailCredentials(new GmailCredentials());
+			gmailService.setGmailCredentials(GmailCredentials.getCredential());
 
 			MimeMessage mm = gmailService.createEmailWithAttachment(to, Configuracion.getConfiguracion().getMailFrom(), subject, body, files);
 

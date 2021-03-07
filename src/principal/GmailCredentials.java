@@ -3,29 +3,50 @@ package principal;
 import config.Configuracion;
 
 public class GmailCredentials {
-	
 
+	// Singleton instance
+	private static GmailCredentials credential = new GmailCredentials();
+
+	private String userEmail;
+	private String clientId;
+	private String clientSecret;
+	private String accessToken;
+	private String refreshToken;
+
+	private GmailCredentials() {
+
+		Configuracion configuracion = Configuracion.getConfiguracion();
+		
+		userEmail = configuracion.getMailFrom();
+		clientId = configuracion.getMailClientId();
+		clientSecret = configuracion.getMailClientSecret();
+		accessToken = configuracion.getMailAccessToken();
+		refreshToken = configuracion.getMailRefreshToken();
+
+	}
 	
-    private final String userEmail=Configuracion.getConfiguracion().getMailFrom();
-    private final String clientId=Configuracion.getConfiguracion().getMailClientId();
-    private final String clientSecret=Configuracion.getConfiguracion().getMailClientSecret();
-    private final String accessToken = Configuracion.getConfiguracion().getMailAccessToken();
-    private final String refreshToken = Configuracion.getConfiguracion().getMailRefreshToken();
-	  
-    public String getUserEmail() {
-		return userEmail;
+	public static GmailCredentials getCredential() {
+		return credential;
 	}
+
+	public String getUserEmail() {
+		return credential.userEmail;
+	}
+
 	public String getClientId() {
-		return clientId;
+		return  credential.clientId;
 	}
+
 	public String getClientSecret() {
-		return clientSecret;
+		return credential.clientSecret;
 	}
+
 	public String getAccessToken() {
-		return accessToken;
+		return credential.accessToken;
 	}
+
 	public String getRefreshToken() {
-		return refreshToken;
+		return credential.refreshToken;
 	}
-    
+
 }
