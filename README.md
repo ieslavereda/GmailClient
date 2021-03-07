@@ -19,7 +19,7 @@ mailClientSecret=
 mailAccessToken=
 mailRefreshToken=
 # Nombre de la aplicacion
-applicationName=LDAP-GAP
+applicationName=LDAP-GAM
 ```
 Se recomienda rellenar las propiedades en un fichero aparte llamado app.properties con la misma estructura.
 
